@@ -1,0 +1,31 @@
+{
+ "actions": [],
+ "creation": "2026-10-31 19:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": ["short_sha", "summary", "committed_on", "author_name", "link_method", "score", "branch", "repo", "commit_sha", "commit_url"],
+ "fields": [
+  {"fieldname": "short_sha", "fieldtype": "Data", "in_list_view": 1, "label": "Commit", "read_only": 1},
+  {"fieldname": "summary", "fieldtype": "Data", "in_list_view": 1, "label": "Summary", "read_only": 1},
+  {"fieldname": "committed_on", "fieldtype": "Datetime", "in_list_view": 1, "label": "Committed On", "read_only": 1},
+  {"fieldname": "author_name", "fieldtype": "Data", "in_list_view": 1, "label": "Author", "read_only": 1},
+  {"fieldname": "link_method", "fieldtype": "Select", "in_list_view": 1, "label": "Linked By", "options": "\nExplicit\nAuto\nSuggested\nManual", "read_only": 1},
+  {"fieldname": "score", "fieldtype": "Percent", "label": "Match", "read_only": 1},
+  {"fieldname": "branch", "fieldtype": "Data", "label": "Branch", "read_only": 1},
+  {"fieldname": "repo", "fieldtype": "Link", "label": "Repository", "options": "Dev Git Tool", "read_only": 1},
+  {"fieldname": "commit_sha", "fieldtype": "Data", "label": "Full SHA", "read_only": 1},
+  {"fieldname": "commit_url", "fieldtype": "Data", "label": "Commit URL", "options": "URL", "read_only": 1}
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-31 19:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Task Manager Dev",
+ "name": "Dev Task Commit",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

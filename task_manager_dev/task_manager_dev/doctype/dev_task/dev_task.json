@@ -7,297 +7,69 @@
  "document_type": "Document",
  "engine": "InnoDB",
  "field_order": [
-  "subject",
-  "project",
-  "type",
-  "column_break_main",
-  "status",
-  "priority",
-  "assignee",
-  "blocked_reason",
-  "sb_planning",
-  "sprint",
-  "release",
-  "story_points",
-  "parent_task",
-  "column_break_planning",
-  "start_date",
-  "due_date",
-  "expected_time",
-  "actual_time",
-  "completed_on",
-  "sb_git",
-  "branch_name",
-  "pr_url",
-  "column_break_git",
-  "commit_count",
-  "last_commit_sha",
-  "last_commit_on",
-  "sb_details",
-  "description",
-  "sb_release",
-  "release_note"
+  "subject", "project", "type", "column_break_main", "status", "priority", "assignee", "blocked_reason",
+  "sb_planning", "sprint", "release", "story_points", "parent_task", "column_break_planning",
+  "start_date", "due_date", "expected_time", "actual_time", "completed_on",
+  "sb_review", "reviewer", "review_status", "column_break_review", "reviewed_by", "reviewed_on", "review_comment",
+  "sb_commits", "task_commits", "suggestions_html",
+  "sb_git", "branch_name", "pr_url", "column_break_git", "commit_count", "last_commit_sha", "last_commit_on",
+  "sb_details", "description", "sb_release", "release_note"
  ],
  "fields": [
-  {
-   "allow_in_quick_entry": 1,
-   "fieldname": "subject",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Subject",
-   "reqd": 1,
-   "search_index": 1
-  },
-  {
-   "allow_in_quick_entry": 1,
-   "bold": 1,
-   "fieldname": "project",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Project",
-   "options": "Dev Project",
-   "remember_last_selected_value": 1,
-   "reqd": 1,
-   "search_index": 1
-  },
-  {
-   "allow_in_quick_entry": 1,
-   "default": "Feature",
-   "fieldname": "type",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Type",
-   "options": "Feature\nBug\nHotfix\nChore\nRefactor\nDocs\nTest",
-   "search_index": 1
-  },
-  {
-   "fieldname": "column_break_main",
-   "fieldtype": "Column Break"
-  },
-  {
-   "bold": 1,
-   "default": "To Do",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Status",
-   "no_copy": 1,
-   "options": "Backlog\nTo Do\nIn Progress\nIn Review\nBlocked\nDone\nCancelled",
-   "search_index": 1
-  },
-  {
-   "default": "Medium",
-   "fieldname": "priority",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Priority",
-   "options": "Low\nMedium\nHigh\nUrgent",
-   "search_index": 1
-  },
-  {
-   "fieldname": "assignee",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Assignee",
-   "options": "User",
-   "search_index": 1
-  },
-  {
-   "depends_on": "eval:doc.status == \"Blocked\"",
-   "fieldname": "blocked_reason",
-   "fieldtype": "Small Text",
-   "label": "Blocked Reason",
-   "mandatory_depends_on": "eval:doc.status == \"Blocked\""
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "sb_planning",
-   "fieldtype": "Section Break",
-   "label": "Planning"
-  },
-  {
-   "fieldname": "sprint",
-   "fieldtype": "Link",
-   "in_standard_filter": 1,
-   "label": "Sprint",
-   "options": "Dev Sprint",
-   "search_index": 1
-  },
-  {
-   "fieldname": "release",
-   "fieldtype": "Link",
-   "in_standard_filter": 1,
-   "label": "Release",
-   "options": "Dev Release",
-   "search_index": 1
-  },
-  {
-   "fieldname": "story_points",
-   "fieldtype": "Int",
-   "label": "Story Points"
-  },
-  {
-   "fieldname": "parent_task",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Parent Task",
-   "options": "Dev Task",
-   "search_index": 1
-  },
-  {
-   "fieldname": "column_break_planning",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "start_date",
-   "fieldtype": "Date",
-   "label": "Start Date"
-  },
-  {
-   "fieldname": "due_date",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "Due Date",
-   "search_index": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "expected_time",
-   "fieldtype": "Float",
-   "label": "Estimated Time (Hours)"
-  },
-  {
-   "fieldname": "actual_time",
-   "fieldtype": "Float",
-   "label": "Actual Time (Hours)",
-   "no_copy": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:doc.status == \"Done\"",
-   "fieldname": "completed_on",
-   "fieldtype": "Datetime",
-   "label": "Completed On",
-   "no_copy": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "sb_git",
-   "fieldtype": "Section Break",
-   "label": "Git Activity"
-  },
-  {
-   "description": "e.g. feature/TASK-00012-login-fix",
-   "fieldname": "branch_name",
-   "fieldtype": "Data",
-   "in_standard_filter": 1,
-   "label": "Branch Name",
-   "search_index": 1
-  },
-  {
-   "fieldname": "pr_url",
-   "fieldtype": "Data",
-   "label": "Pull Request URL",
-   "options": "URL"
-  },
-  {
-   "fieldname": "column_break_git",
-   "fieldtype": "Column Break"
-  },
-  {
-   "default": "0",
-   "fieldname": "commit_count",
-   "fieldtype": "Int",
-   "label": "Commit Count",
-   "no_copy": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "last_commit_sha",
-   "fieldtype": "Data",
-   "label": "Last Commit SHA",
-   "no_copy": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "last_commit_on",
-   "fieldtype": "Datetime",
-   "label": "Last Commit On",
-   "no_copy": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "sb_details",
-   "fieldtype": "Section Break",
-   "label": "Details"
-  },
-  {
-   "fieldname": "description",
-   "fieldtype": "Text Editor",
-   "label": "Description"
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "sb_release",
-   "fieldtype": "Section Break",
-   "label": "Release Note"
-  },
-  {
-   "description": "Optional user-friendly line used when generating release notes. If empty, the subject is used.",
-   "fieldname": "release_note",
-   "fieldtype": "Small Text",
-   "label": "Release Note Summary"
-  }
+  {"allow_in_quick_entry": 1, "fieldname": "subject", "fieldtype": "Data", "in_global_search": 1, "in_list_view": 1, "in_standard_filter": 1, "label": "Subject", "reqd": 1, "search_index": 1},
+  {"allow_in_quick_entry": 1, "bold": 1, "fieldname": "project", "fieldtype": "Link", "in_list_view": 1, "in_standard_filter": 1, "label": "Project", "options": "Dev Project", "remember_last_selected_value": 1, "reqd": 1, "search_index": 1},
+  {"allow_in_quick_entry": 1, "default": "Feature", "fieldname": "type", "fieldtype": "Select", "in_list_view": 1, "in_standard_filter": 1, "label": "Type", "options": "Feature\nBug\nHotfix\nChore\nRefactor\nDocs\nTest", "search_index": 1},
+  {"fieldname": "column_break_main", "fieldtype": "Column Break"},
+  {"bold": 1, "default": "To Do", "fieldname": "status", "fieldtype": "Select", "in_list_view": 1, "in_standard_filter": 1, "label": "Status", "no_copy": 1, "options": "Backlog\nTo Do\nIn Progress\nIn Review\nBlocked\nDone\nCancelled", "search_index": 1},
+  {"default": "Medium", "fieldname": "priority", "fieldtype": "Select", "in_list_view": 1, "in_standard_filter": 1, "label": "Priority", "options": "Low\nMedium\nHigh\nUrgent", "search_index": 1},
+  {"fieldname": "assignee", "fieldtype": "Link", "in_list_view": 1, "in_standard_filter": 1, "label": "Assignee", "options": "User", "search_index": 1},
+  {"depends_on": "eval:doc.status == \"Blocked\"", "fieldname": "blocked_reason", "fieldtype": "Small Text", "label": "Blocked Reason", "mandatory_depends_on": "eval:doc.status == \"Blocked\""},
+  {"collapsible": 1, "fieldname": "sb_planning", "fieldtype": "Section Break", "label": "Planning"},
+  {"fieldname": "sprint", "fieldtype": "Link", "in_standard_filter": 1, "label": "Sprint", "options": "Dev Sprint", "search_index": 1},
+  {"fieldname": "release", "fieldtype": "Link", "in_standard_filter": 1, "label": "Release", "options": "Dev Release", "search_index": 1},
+  {"fieldname": "story_points", "fieldtype": "Int", "label": "Story Points"},
+  {"fieldname": "parent_task", "fieldtype": "Link", "ignore_user_permissions": 1, "label": "Parent Task", "options": "Dev Task", "search_index": 1},
+  {"fieldname": "column_break_planning", "fieldtype": "Column Break"},
+  {"fieldname": "start_date", "fieldtype": "Date", "label": "Start Date"},
+  {"fieldname": "due_date", "fieldtype": "Date", "in_list_view": 1, "label": "Due Date", "search_index": 1},
+  {"default": "0", "fieldname": "expected_time", "fieldtype": "Float", "label": "Estimated Time (Hours)"},
+  {"fieldname": "actual_time", "fieldtype": "Float", "label": "Actual Time (Hours)", "no_copy": 1, "read_only": 1},
+  {"depends_on": "eval:doc.status == \"Done\"", "fieldname": "completed_on", "fieldtype": "Datetime", "label": "Completed On", "no_copy": 1, "read_only": 1},
+  {"fieldname": "sb_review", "fieldtype": "Section Break", "label": "Review"},
+  {"description": "Whoever checks the work once commits are linked. Tasks with a reviewer can only be completed via Approve.", "fieldname": "reviewer", "fieldtype": "Link", "in_standard_filter": 1, "label": "Reviewer", "options": "User", "search_index": 1},
+  {"default": "Not Requested", "fieldname": "review_status", "fieldtype": "Select", "in_list_view": 1, "in_standard_filter": 1, "label": "Review Status", "no_copy": 1, "options": "Not Requested\nPending Review\nApproved\nDenied", "read_only": 1},
+  {"fieldname": "column_break_review", "fieldtype": "Column Break"},
+  {"depends_on": "eval:doc.reviewed_by", "fieldname": "reviewed_by", "fieldtype": "Link", "label": "Reviewed By", "no_copy": 1, "options": "User", "read_only": 1},
+  {"depends_on": "eval:doc.reviewed_on", "fieldname": "reviewed_on", "fieldtype": "Datetime", "label": "Reviewed On", "no_copy": 1, "read_only": 1},
+  {"depends_on": "eval:doc.review_comment", "fieldname": "review_comment", "fieldtype": "Small Text", "label": "Review Comment", "no_copy": 1, "read_only": 1},
+  {"fieldname": "sb_commits", "fieldtype": "Section Break", "label": "Linked Commits"},
+  {"cannot_add_rows": 1, "description": "Deleting a row unlinks that commit (it will not be auto-linked again).", "fieldname": "task_commits", "fieldtype": "Table", "label": "Commits", "no_copy": 1, "options": "Dev Task Commit"},
+  {"fieldname": "suggestions_html", "fieldtype": "HTML", "label": "Suggested Commits"},
+  {"collapsible": 1, "fieldname": "sb_git", "fieldtype": "Section Break", "label": "Git Activity"},
+  {"description": "e.g. feature/TASK-00012-login-fix. Also used for matching commits on that branch.", "fieldname": "branch_name", "fieldtype": "Data", "in_standard_filter": 1, "label": "Branch Name", "search_index": 1},
+  {"fieldname": "pr_url", "fieldtype": "Data", "label": "Pull Request URL", "options": "URL"},
+  {"fieldname": "column_break_git", "fieldtype": "Column Break"},
+  {"default": "0", "fieldname": "commit_count", "fieldtype": "Int", "label": "Commit Count", "no_copy": 1, "read_only": 1},
+  {"fieldname": "last_commit_sha", "fieldtype": "Data", "label": "Last Commit SHA", "no_copy": 1, "read_only": 1},
+  {"fieldname": "last_commit_on", "fieldtype": "Datetime", "label": "Last Commit On", "no_copy": 1, "read_only": 1},
+  {"fieldname": "sb_details", "fieldtype": "Section Break", "label": "Details"},
+  {"fieldname": "description", "fieldtype": "Text Editor", "label": "Description"},
+  {"collapsible": 1, "fieldname": "sb_release", "fieldtype": "Section Break", "label": "Release Note"},
+  {"description": "Optional user-friendly line used when generating release notes. If empty, the subject is used.", "fieldname": "release_note", "fieldtype": "Small Text", "label": "Release Note Summary"}
  ],
  "icon": "fa fa-check",
  "links": [],
  "max_attachments": 5,
- "modified": "2026-10-31 11:18:43.401473",
+ "modified": "2026-10-31 19:00:00.000000",
  "modified_by": "Administrator",
  "module": "Task Manager Dev",
  "name": "Dev Task",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Projects Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Projects User",
-   "share": 1,
-   "write": 1
-  }
+  {"create": 1, "delete": 1, "email": 1, "print": 1, "read": 1, "report": 1, "role": "System Manager", "share": 1, "write": 1},
+  {"create": 1, "delete": 1, "email": 1, "print": 1, "read": 1, "report": 1, "role": "Projects Manager", "share": 1, "write": 1},
+  {"create": 1, "email": 1, "print": 1, "read": 1, "report": 1, "role": "Projects User", "share": 1, "write": 1}
  ],
  "quick_entry": 1,
  "row_format": "Dynamic",
