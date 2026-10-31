@@ -1,0 +1,48 @@
+{
+ "actions": [],
+ "autoname": "field:version",
+ "creation": "2026-10-31 16:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "version",
+  "project",
+  "status",
+  "column_break_main",
+  "release_date",
+  "sb_notes",
+  "release_notes"
+ ],
+ "fields": [
+  {"description": "e.g. v1.2.0", "fieldname": "version", "fieldtype": "Data", "in_list_view": 1, "label": "Version", "reqd": 1, "unique": 1},
+  {"fieldname": "project", "fieldtype": "Link", "in_list_view": 1, "in_standard_filter": 1, "label": "Project", "options": "Dev Project", "reqd": 1},
+  {"default": "Planned", "fieldname": "status", "fieldtype": "Select", "in_list_view": 1, "in_standard_filter": 1, "label": "Status", "options": "Planned\nReleased"},
+  {"fieldname": "column_break_main", "fieldtype": "Column Break"},
+  {"fieldname": "release_date", "fieldtype": "Date", "in_list_view": 1, "label": "Release Date"},
+  {"fieldname": "sb_notes", "fieldtype": "Section Break", "label": "Release Notes"},
+  {"description": "Will be generated from commits and tasks in a later step", "fieldname": "release_notes", "fieldtype": "Markdown Editor", "label": "Release Notes"}
+ ],
+ "icon": "fa fa-tag",
+ "links": [
+  {"link_doctype": "Dev Task", "link_fieldname": "release"}
+ ],
+ "modified": "2026-10-31 16:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Task Manager Dev",
+ "name": "Dev Release",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {"create": 1, "delete": 1, "read": 1, "report": 1, "role": "System Manager", "share": 1, "write": 1},
+  {"create": 1, "read": 1, "report": 1, "role": "Projects Manager", "write": 1},
+  {"read": 1, "report": 1, "role": "Projects User"}
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "version",
+ "track_changes": 1
+}

@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "autoname": "field:sprint_name",
+ "creation": "2026-10-31 16:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "sprint_name",
+  "project",
+  "status",
+  "column_break_main",
+  "start_date",
+  "end_date",
+  "sb_goal",
+  "goal"
+ ],
+ "fields": [
+  {"fieldname": "sprint_name", "fieldtype": "Data", "in_list_view": 1, "label": "Sprint Name", "reqd": 1, "unique": 1},
+  {"fieldname": "project", "fieldtype": "Link", "in_list_view": 1, "in_standard_filter": 1, "label": "Project", "options": "Dev Project", "reqd": 1},
+  {"default": "Planned", "fieldname": "status", "fieldtype": "Select", "in_list_view": 1, "in_standard_filter": 1, "label": "Status", "options": "Planned\nActive\nCompleted"},
+  {"fieldname": "column_break_main", "fieldtype": "Column Break"},
+  {"fieldname": "start_date", "fieldtype": "Date", "in_list_view": 1, "label": "Start Date"},
+  {"fieldname": "end_date", "fieldtype": "Date", "in_list_view": 1, "label": "End Date"},
+  {"fieldname": "sb_goal", "fieldtype": "Section Break", "label": "Goal"},
+  {"fieldname": "goal", "fieldtype": "Small Text", "label": "Sprint Goal"}
+ ],
+ "icon": "fa fa-repeat",
+ "links": [
+  {"link_doctype": "Dev Task", "link_fieldname": "sprint"}
+ ],
+ "modified": "2026-10-31 16:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Task Manager Dev",
+ "name": "Dev Sprint",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {"create": 1, "delete": 1, "read": 1, "report": 1, "role": "System Manager", "share": 1, "write": 1},
+  {"create": 1, "read": 1, "report": 1, "role": "Projects Manager", "write": 1},
+  {"read": 1, "report": 1, "role": "Projects User"}
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "sprint_name",
+ "track_changes": 1
+}
