@@ -1,4 +1,4 @@
-# Task Manager Dev
+# ERP Dev TASK ( Extensive Task Manager made for developers ) 
 
 **A git-integrated task manager for developers, built as a custom Frappe / ERPNext app.**
 
